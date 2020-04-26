@@ -1,0 +1,530 @@
+%--------------------
+% Packages
+% -------------------
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+%\usepackage{gentium}
+\usepackage{mathptmx} % Use Times Font
+\usepackage{amsmath}
+\usepackage[pdftex]{graphicx}
+\usepackage[pdftex,linkcolor=black,pdfborder={0 0 0}]{hyperref}
+\usepackage{calc} 
+\usepackage{enumitem} 
+\frenchspacing 
+\linespread{1.2} 
+\usepackage[a4paper, lmargin=0.1666\paperwidth, rmargin=0.1666\paperwidth, tmargin=0.1111\paperheight, bmargin=0.1111\paperheight]{geometry}
+\usepackage[all]{nowidow} 
+
+
+%-----------------------
+% Begin document
+%-----------------------
+\begin{document} 
+\title{CS 440 Homework Assignment 3 Part 2 \newline
+Probabilistic Reasoning}
+\author{Devvrat Patel and Shubham Mittal}
+\maketitle
+\newpage
+\textbf{
+Problem 1}\\\\
+ 
+\begin{tabular}{|c|c|c|c|c|c|} 
+\hline
+A & B & C & D & E & F \\ \hline
+\end{tabular}\\\\
+$X_{t} = (A, B, C, D, F, F)$\\\\
+$E_{t} = (Hot, not hot)$\\\\
+\textbf{Transition Model}\\
+$P(X_{t+1}|X_{t})$\\\\
+\begin{tabular}{c| c c c c c c|} 
+ & A & B & C & D & E & F \\ \hline
+A & 0.2 & 0.8 & 0 &  0 & 0 & 0\\
+B & 0 & 0.2 & 0.8 &  0 & 0 & 0\\
+C & 0 & 0 & 0.2 &  0.8 & 0 & 0\\
+D & 0 & 0 & 0 &  0.2 & 0.8 & 0\\
+E & 0 & 0 & 0 &  0 & 0.2 & 0.8\\
+F & 0 & 0 & 0 &  0 & 0 & 1\\ \hline
+\end{tabular}\\\\\\\\
+\textbf{Observational Model}\\
+$P(E_{t}|X_{t})$\\\\
+\begin{tabular}{c| c c c c c c|} 
+ & hot & cold \\ \hline
+A & 1 & 0 \\
+B & 0 & 1 \\
+C & 0 & 1 \\
+D & 1 & 0  \\
+E & 0 & 1  \\
+F & 0 & 1  \\ \hline
+\end{tabular}\\\\\\
+$P(X_{1})$=$\begin{bmatrix}
+P(X_{1})=A\\
+P(X_{1})=B\\
+P(X_{1})=C\\
+P(X_{1})=D\\
+P(X_{1})=E\\
+P(X_{1})=F\\
+\end{bmatrix}$
+$\begin{bmatrix}
+1\\
+0\\
+0\\
+0\\
+0\\
+0\\
+\end{bmatrix}$\\\\\\
+\newpage
+\textbf{1) Filtering $E_{1}=h, E_{2}=C, E_{3}=C$  \\ P$(X_{3}|h{1},C_{1}, C_{2})=?$}\\\\
+For this question we will use this equation,\\\\
+P$(X_{t}|E_{1:t})=\alpha*P(E_{t}|X_{t}) \sum_{X_{t-1}}P(X_{t}|X_{t-1})*P(X_{t-1}|E_{1:t-1})$\\
+P$(X_{1}|E_{1}=h)$=P$(X_{1})$=$\begin{bmatrix}
+1\\
+0\\
+0\\
+0\\
+0\\
+0\\
+\end{bmatrix}$ (given)\\\\
+P$(X_{2}|E_{1}=h, C_{2}=C)$=$\alpha*P(E_{2}|X_{2})*\sum_{X_{1}=(A,B,C,D,E,F)}P(X_{2}|X_{1})*P(X_{1}|E_{1})$\\\\
+$X_{1}$ is 1 at A and 0 at rest. So, we need to only sum over A\\
+$\sum_{X_{1}}P(X_{2}|X_{1})*P(X_{1}|E_{1})$=$\begin{bmatrix}
+0.2\\
+0.8\\
+0\\
+0\\
+0\\
+0\\
+\end{bmatrix}$*1+0=$\begin{bmatrix}
+0.2\\
+0.8\\
+0\\
+0\\
+0\\
+0\\
+\end{bmatrix}$\\\\\\
+Now as sensor is always accurate\\\\
+P$(E_{2}=C|X_{2})$=$\begin{bmatrix}
+P(E_{2}=C|X_{2}=A)\\
+P(E_{2}=C|X_{2}=B)\\
+P(E_{2}=C|X_{2}=C)\\
+P(E_{2}=C|X_{2}=D)\\
+P(E_{2}=C|X_{2}=E)\\
+P(E_{2}=C|X_{2}=F)\\
+\end{bmatrix}$=$\begin{bmatrix}
+0\\
+1\\
+1\\
+0\\
+1\\
+1\\
+\end{bmatrix}$\\\
+P$(X_{2}|E_{1}=h, E_{2}=C)=\alpha$*$\begin{bmatrix}
+0\\
+1\\
+1\\
+0\\
+1\\
+1\\
+\end{bmatrix}$*$\begin{bmatrix}
+0.2\\
+0.8\\
+0\\
+0\\
+0\\
+0\\
+\end{bmatrix}$=\alpha*$\begin{bmatrix}
+0\\
+0.8\\
+0\\
+0\\
+0\\
+0\\
+\end{bmatrix}$\\\\
+$\alpha=\frac{1}{0.8}=1.25$\\\\
+\newpage
+therefore,\\\\
+P$(X_{2}|E_{1}=h, E_{2}=C)$=1.25*$\begin{bmatrix}
+0\\
+0.8\\
+0\\
+0\\
+0\\
+0\\
+\end{bmatrix}$=$\begin{bmatrix}
+0\\
+1\\
+0\\
+0\\
+0\\
+0\\
+\end{bmatrix}$
+\\\\
+$P(X_{3}|e_{1}=h, E_{2}=C, E_{3}=C)$\\
+=\alpha*P(E_{3}|X_{3})*\sum_{X_{2}=(A,B,C,D,E,F)}P(X_{3}|X_{2})*P(X_{2}|E_{1},E_{2})\\\\
+Now, $E_{3}=C$\\\\
+therefore,\\
+$P(E_{3}=C|X_{3})$=$\begin{bmatrix}
+0\\
+1\\
+1\\
+0\\
+1\\
+1\\
+\end{bmatrix}$\\\\
+$X_{2}$ is only 1 at B and 0 rest so we only need to sum over B.\\\\
+$\sum_{X_{2}=B}P(X_{3}|X_{2})*P(X_{2}|E_{1},E_{2})$=0+$\begin{bmatrix}
+0\\
+0.2\\
+0.8\\
+0\\
+0\\
+0\\
+\end{bmatrix}$+0=$\begin{bmatrix}
+0\\
+0.2\\
+0.8\\
+0\\
+0\\
+0\\
+\end{bmatrix}$\\\\
+Therefore\\
+P$(X_{3}|h_{1},C_{2},C_{3})=\alpha$*$\begin{bmatrix}
+0\\
+1\\
+1\\
+0\\
+1\\
+1\\
+\end{bmatrix}$*$\begin{bmatrix}
+0\\
+0.2\\
+0.8\\
+0\\
+0\\
+0\\
+\end{bmatrix}$=$\alpha$*$\begin{bmatrix}
+0\\
+0.2\\
+0.8\\
+0\\
+0\\
+0\\
+\end{bmatrix}$= Answer =$\begin{bmatrix}
+0\\
+0.2\\
+0.8\\
+0\\
+0\\
+0\\
+\end{bmatrix}$\\\\
+$\alpha=\frac{1}{0.8+0.2}=1$\\\\\\\\
+\textbf{2) Smoothing: P$(X_{2}|h_{1}, C_{2}, C_{3})$\\\\}
+The equation we will use for this question is\\\\
+P$(X_{k}|E_{1:t})=\alpha*P(E_{k+1:t}|X_{k}).P(X_{k}|E_{1:k})\\\\
+Therefore,\\
+P$(X_{2}|h_{1},C_{2},C_{3})=\alpha*P(E_{3:3}|X_{2}).P(X_{2}|E_{1:2})\\
+And also,\\
+P$(E_{t+1:t}|X_{t})=\sum_{X_{t+1}}*P(X_{t+1}|X_{t})*P(E_{t+1}|X_{t+1})*P(E_{t+2:t}|X_{t+1})$\\
+Therefore\\
+$P(E_{3:3}=cold|X_{2})=\sum_{X_{3}}*P(X_{3}|X_{2})*P(E_{3}|X_{3})*P(E_{4:3}|X_{3})$\\
+Here,\\
+t = T-1 = 3-1 = 2\\
+Therefore, we can set\\
+$P(E_{4:3}|X_{3})=1$\\\\
+Also, $E_{3}=C$ and therefore $P(E_{3}=C|X_{3})$=$\begin{bmatrix}
+0\\
+1\\
+1\\
+0\\
+1\\
+1\\
+\end{bmatrix}$   (From Observational Model)\\\\
+Therefore,\\
+P$(E_{3:3}=C|X_{2})=\sum_{X_{3}}P(X_{3}|X_{2})*P(E_{3}|X_{3})*1\\\\
+=$\begin{bmatrix}
+P(X_{3}=B|X_{2}=A) + P(X_{3}=C|X_{2}=A) + P(X_{3}=E|X_{2}=A) + P(X_{3}=F|X_{2}=A)\\
+P(X_{3}=B|X_{2}=B) + P(X_{3}=C|X_{2}=B) + P(X_{3}=E|X_{2}=B) + P(X_{3}=F|X_{2}=B)\\
+P(X_{3}=B|X_{2}=C) + P(X_{3}=C|X_{2}=C) + P(X_{3}=E|X_{2}=C) + P(X_{3}=F|X_{2}=C)\\
+P(X_{3}=B|X_{2}=D) + P(X_{3}=C|X_{2}=D) + P(X_{3}=E|X_{2}=D) + P(X_{3}=F|X_{2}=D)\\
+P(X_{3}=B|X_{2}=E) + P(X_{3}=C|X_{2}=E) + P(X_{3}=E|X_{2}=E) + P(X_{3}=F|X_{2}=E)\\
+P(X_{3}=B|X_{2}=F) + P(X_{3}=C|X_{2}=F) + P(X_{3}=E|X_{2}=F) + P(X_{3}=F|X_{2}=F)\\
+\end{bmatrix}$\\\\
+=$\begin{bmatrix}
+0.8+0+0+0\\
+0.2+0.8+0+0\\
+0+0.2+0+0\\
+0+0+0+0.8+0.0\\
+0+0+0.8+0.2\\
+0+0+0+1\\
+\end{bmatrix}$=$P(E_{3:3}=C|X_{2})$=$\begin{bmatrix}
+0.8\\
+1\\
+0.2\\
+0.8\\
+1\\
+1\\
+\end{bmatrix}$\\\\
+And $P(X_{2}|E_{1}=h, E_{2}=C)$=$\begin{bmatrix}
+0\\
+1\\
+0\\
+0\\
+0\\
+0\\
+\end{bmatrix}$ (From Question 1)\\\\
+Therefore,\\\\
+$P(X_{2}|E_{1:3})=\alpha$*$\begin{bmatrix}
+0.8\\
+1\\
+0.2\\
+0.8\\
+1\\
+1\\
+\end{bmatrix}$*$\begin{bmatrix}
+0\\
+1\\
+0\\
+0\\
+0\\
+0\\
+\end{bmatrix}$= Answer =$\begin{bmatrix}
+0\\
+1\\
+0\\
+0\\
+0\\
+0\\
+\end{bmatrix}$\\\\\\\\
+\newpage
+\textbf{3) Prediction problem  P($h_{4}|h_{1},c_{2},c_{3}$)}\\
+For this question we will following equations,\\\\
+P($E_{t+1}|E_{1:t}$)=\sum_{X_{t}}P($X_{t}|E_{1:t})*P(E_{t+1}|X_{t})$\\\\
+and\\
+P($E_{t+1}|X_{t}$)=\sum_{X_{t+1}}P($E_{t+1}|X_{t+1})*P(X_{t+1}|X_{t})$\\\\
+P($h_{4}|h_{1},c_{2},c_{3}$)=$\sum_{X_{3}}P($X_{3}|h_{1},c_{2},c_{3})*P(h_{4}|X_{3})$\\\\
+Here\\
+P($X_{3}|h_{1},c_{2},c_{3}$)=$\begin{bmatrix}
+0\\
+0.2\\
+0.8\\
+0\\
+0\\
+0\\
+\end{bmatrix}$   (From Question 1)\\\\
+and\\
+P($h_{4}|X_{3}$)=$\sum_{X_{4}}P(h_{4}|X_{4})*P(X_{4}|X_{3})$\\\\
+=$\begin{bmatrix}
+$\sum_{X_{4}}P(h_{4}|X_{4})*P(X_{4}|X_{3}=A)$\\
+$\sum_{X_{4}}P(h_{4}|X_{4})*P(X_{4}|X_{3}=B)$\\
+$\sum_{X_{4}}P(h_{4}|X_{4})*P(X_{4}|X_{3}=C)$\\
+$\sum_{X_{4}}P(h_{4}|X_{4})*P(X_{4}|X_{3}=D)$\\
+$\sum_{X_{4}}P(h_{4}|X_{4})*P(X_{4}|X_{3}=E)$\\
+$\sum_{X_{4}}P(h_{4}|X_{4})*P(X_{4}|X_{3}=F)$\\
+\end{bmatrix}$ \\\\
+=$\begin{bmatrix}
+1*0.2+0*0.8+0*0+1*0+0*0+0*0\\
+1*0+0*0.2+0*0.8+1*0+0*0+0*0\\
+1*0+0*0+0*0.2+1*0.8+0*0+0*0\\
+1*0+0*0+0*0+1*0.2+0*0.8+0*0\\
+1*0+0*0+0*0+1*0+0*0.2+0*0.8\\
+1*0+0*0+0*0+1*0+0*0+0*1\\
+\end{bmatrix}$ \\\\
+=$\begin{bmatrix}
+0.2\\
+0\\
+0.8\\
+0.2\\
+0\\
+0\\
+\end{bmatrix}$=P($h_{4}|X_{3}$) \\\\
+\newpage
+Now, P($h_{4}|h_{1}, c_{2}, c_{3}$) = $\sum_{X_{3}}(X_{3}|h_{1},c_{2},c_{3})*P(h_{4}|X_{3}$)\\
+= 0*0.2+0.2*0+0.8*0.8+0*0.2+0*0+0*0\\\\
+= 0.64 = Answer\\\\\\
+\newpage
+\textbf{4) Prediction P($X_{4}| h_{1}, C_{2}, C_{3}$)\\\\}
+For this question we will use the equation\\
+P($X_{t+1}| E_{1:t}$)= P($X_{t}|E_{1:t}$)*P($X_{t+1}|X_{t}$)\\
+\\
+Therefore, \\
+P($X_{4}|h_{1}, C_{2}, C_{3}$)= P($X_{3}|h_{1}, C_{2}, C_{3}$)*P($X_{4}|X_{3}$)\\\\
+Here, \\
+P($X_{3}|h_{1}, C_{2}, C_{3}$)=$\begin{bmatrix}
+0 \\ 
+0.2\\ 
+0.8\\ 
+0\\
+0\\
+0
+\end{bmatrix}$
+\\\\
+$\sum_{X_{3}}P(X_{3}|h_{1}, C_{2}, C_{3})*P(X_{4}|X_{3}$)\\\\
+$\begin{bmatrix}
+\sum_{X_{3}}P(X_{4}=A|X_{3})*P(X_{3}|E_{3:1}) \\ 
+\sum_{X_{3}}P(X_{4}=B|X_{3})*P(X_{3}|E_{3:1}) \\ 
+\sum_{X_{3}}P(X_{4}=C|X_{3})*P(X_{3}|E_{3:1}) \\ 
+\sum_{X_{3}}P(X_{4}=D|X_{3})*P(X_{3}|E_{3:1}) \\
+\sum_{X_{3}}P(X_{4}=E|X_{3})*P(X_{3}|E_{3:1}) \\
+\sum_{X_{3}}P(X_{4}=F|X_{3})*P(X_{3}|E_{3:1}) 
+\end{bmatrix}$
+\\\\
+=$\begin{bmatrix}
+0+0+0+0+0+0\\
+0+0.2*0.2+0+0+0+0\\
+0+0.2*0.2+0.8*0.2+0+0+0\\
+0+0+0.8*0.8+0+0+0\\
+0+0+0+0+0+0\\
+0+0+0+0+0+0\\
+\end{bmatrix}$
+\\\\
+= Answer =$\begin{bmatrix}
+0\\
+0.04\\
+0.32\\
+0.64\\
+0\\
+0\\
+\end{bmatrix}$
+\\\\
+\newpage
+\textbf{5) P($h_{4}, h_{5}, c_{6}|h_{1},c_{2},c_{3}$)\\}
+For this question we will use this equation\\\\
+P($E_{t+1:T}|E_{1:t})=\sum_{X_{t}}P(X_{t}|E_{1:t})*P(E_{t+1:T}|X_{t})$\\\\
+Here t=3, T=6  and t+1=4\\\\
+P($E_{4:6}|E_{1:3})=\sum_{X_{3}}P(X_{3}|E_{1:3})*P(E_{4:6}|X_{3})$\\\\
+P($X_{3}| h_{1}, c_{2},c_{3}$)=$\begin{bmatrix}
+0\\
+0.2\\
+0.8\\
+0\\
+0\\
+0\\
+\end{bmatrix}$    From Question 1\\\\
+Now\\
+P($E_{t+1:T}|X_{t})=\sum_{X_{t+1}}P(X_{t+1}|X_{t})*P(E_{t+1}|X_{t+1})*P(E_{t+2:T}|X_{t+1})$\\\\
+Therefore \\
+P($E_{4:6}|X_{3})=\sum_{X_{4}}P(X_{4}|X_{3})*P(E_{4}|X_{4})*P(E_{5:6}|X_{4})$\\\\
+P($E_{5:6}|X_{4})=\sum_{X_{5}}P(X_{5}|X_{4})*P(E_{5}|X_{5})*P(E_{6:6}|X_{5})$\\\\
+P($E_{6:6}|X_{5})=\sum_{X_{6}}P(X_{6}|X_{5})*P(E_{6}|X_{6})*P(E_{7:6}|X_{5})$\\\\
+We start by setting $P(E_{7:6}|X_{6})=1$\\
+Now, \\
+P($E_{6:6}=cold|X_{5})=\sum_{X_{6}}P(X_{6}|X_{5})*P(C_{6}|X_{6})*1$\\\\
+=$\begin{bmatrix}
+\sum_{X_{6}}P(X_{6}|X_{5}=A)*P(C_{6}|X_{6})\\
+\sum_{X_{6}}P(X_{6}|X_{5}=B)*P(C_{6}|X_{6})\\
+\sum_{X_{6}}P(X_{6}|X_{5}=C)*P(C_{6}|X_{6})\\
+\sum_{X_{6}}P(X_{6}|X_{5}=D)*P(C_{6}|X_{6})\\
+\sum_{X_{6}}P(X_{6}|X_{5}=E)*P(C_{6}|X_{6})\\
+\sum_{X_{6}}P(X_{6}|X_{5}=F)*P(C_{6}|X_{6})\\
+\end{bmatrix}$  =$\begin{bmatrix}
+0+0.8+0+0+0+0\\
+0+0.2+0.8+0+0+0\\
+0+0+0.2+0+0+0\\
+0+0+0+0+0.8+0\\
+0+0+0+0+0.2+0.8\\
+0+0+0+0+0+1
+\end{bmatrix}$ =$\begin{bmatrix}
+0.8\\1\\0.2\\0.8\\1\\1
+\end{bmatrix}$  \\\\
+\newpage
+Now, P($E_{5:6}|X_{4}$)\\\\
+=$\begin{bmatrix}
+\sum_{X_{5}}P(X_{5}|X_{4}=A)*P(E_{5}=h|X_{5})*P(E_{6:6}X_{5})\\
+\sum_{X_{5}}P(X_{5}|X_{4}=B)*P(E_{5}=h|X_{5})*P(E_{6:6}X_{5})\\
+\sum_{X_{5}}P(X_{5}|X_{4}=C)*P(E_{5}=h|X_{5})*P(E_{6:6}X_{5})\\
+\sum_{X_{5}}P(X_{5}|X_{4}=D)*P(E_{5}=h|X_{5})*P(E_{6:6}X_{5})\\
+\sum_{X_{5}}P(X_{5}|X_{4}=E)*P(E_{5}=h|X_{5})*P(E_{6:6}X_{5})\\
+\sum_{X_{5}}P(X_{5}|X_{4}=F)*P(E_{5}=h|X_{5})*P(E_{6:6}X_{5})\\
+\end{bmatrix}$  =$\begin{bmatrix}
+0.2+0.8+0+0+0+0\\
+0+0+0+0+0+0\\
+0+0+0+0.8*0.8+0+0\\
+0+0+0+0.2*0.8,0,0\\
+0+0+0+0+0+0\\
+0+0+0+0+0+0
+\end{bmatrix}$ =$\begin{bmatrix}
+0.16\\0\\0.64\\0.16\\0\\0
+\end{bmatrix}$ \\\\
+Finally, P($E_{4:6}|X_{3}$)\\\\
+=$\begin{bmatrix}
+\sum_{X_{4}}P(X_{4}|X_{3}=A)*P(E_{4}=h|X_{4})*P(E_{5:6}X_{4})\\
+\sum_{X_{4}}P(X_{4}|X_{3}=B)*P(E_{4}=h|X_{4})*P(E_{5:6}X_{4})\\
+\sum_{X_{4}}P(X_{4}|X_{3}=C)*P(E_{4}=h|X_{4})*P(E_{5:6}X_{4})\\
+\sum_{X_{4}}P(X_{4}|X_{3}=D)*P(E_{4}=h|X_{4})*P(E_{5:6}X_{4})\\
+\sum_{X_{4}}P(X_{4}|X_{3}=E)*P(E_{4}=h|X_{4})*P(E_{5:6}X_{4})\\
+\sum_{X_{4}}P(X_{4}|X_{3}=F)*P(E_{4}=h|X_{4})*P(E_{5:6}X_{4})\\
+\end{bmatrix}$  =$\begin{bmatrix}
+0.2*0.16+0+0+0+0+0\\
+0+0+0+0+0+0\\
+0+0+0+0.8*0.16+0+0\\
+0+0+0+0.2*0.16,0,0\\
+0+0+0+0+0+0\\
+0+0+0+0+0+0
+\end{bmatrix}$ =$\begin{bmatrix}
+0.032\\0\\0.128\\0.032\\0\\0
+\end{bmatrix}$ \\\\
+and now,\\\\
+P($E_{4:6}|E_{1:3})=\sum_{X_{3}}P(x_{3}|E_{1:3})*P(E_{4:6}|X_{3}$)\\\\
+= 0*0.032+0.2*0+0.8*0.128+0*0.032+0*0+0*0\\\\
+= 0.1024 = Answer\\\\\\
+\newpage
+ \textbf{ Problem 2: }\\\\
+\begin{tabular}{|c|c|c|c|} 
+\hline
+s & a & $s^{'}$ & $T(S,a,s^{'})$ \\\hline
+A & 1 & A & 1  \\
+A & 1 & B & 0  \\
+A & 2 & A & 0.5\\
+A & 2 & B & 0.5\\ \hline
+B & 1 & A & 0 \\
+B & 1 & B & 1\\
+B & 2 & A & 0 \\
+B & 2 & B & 1\\ \hline
+\end{tabular}
+\\
+\\
+\\
+\begin{tabular}{|c|c|c|c|} 
+\hline
+s & a & R(s,a) \\ \hline
+A & 1 & 0 \\
+A & 2 & -1 \\
+B & 1 & 5  \\
+B & 2 & 0  \\ \hline
+\end{tabular}
+\\\\
+\gamma = 1
+\\\\\\
+\textbf{1) Bellman's Equation}\\\\
+$V^{\pi}(s)$=R(s,$\pi(s)$)+\gamma$\sum_{s' \epsilon States}T(s,\pi(s),s^{'})V^{\pi}(s^{'})$\\\\\\
+\newpage
+\textbf{2) $\pi(A)=1$ and $\pi(B)=1. As $\gamma = 1$, we will not be including it in further calculations.$\\\\}
+\begin{tabular}{|c|c|c|c|} 
+\hline
+State & $V_{0}^{\pi}$ & $V_{1}^{\pi}$ \\ \hline
+\multirow A & 0 & R(A,1)+T(A,1,A)*$V_{0}^{\pi}$(A)+T(A,1,B)*$V_{0}^{\pi}$(B)\\ & & =0+1*0+0*0\\& & =0\\\hline
+\multirow B & 0 & R(B,1)+T(B,1,A)*$V_{0}^{\pi}$(A)+T(B,1,B)*$V_{0}^{\pi}$(B) \\& & =5+0*0+1*0\\ & & =5\\\hline
+State & $V_{1}^{\pi}$ & $V_{2}^{\pi}$ \\ \hline
+\multirow A & 0 & R(A,1)+T(A,1,A)*$V_{1}^{\pi}$(A)+T(A,1,B)*$V_{1}^{\pi}$(B)\\ & & =0+1*0+0*5\\& & =0\\\hline
+\multirow B & 5 & R(B,1)+T(B,1,A)*$V_{1}^{\pi}$(A)+T(B,1,B)*$V_{1}^{\pi}$(B) \\& & =5+0*0+1*5\\ & & =10\\\hline
+\end{tabular}
+\\\\
+$V_{2}^{\pi}(A)=0$\\
+$V_{2}^{\pi}(B)=0$\\\\\\
+\textbf{3) We need to find $Q^{\pi }(A,1), Q^{\pi }(A,2), Q^{\pi }(B,1)$ and $Q^{\pi }(B,2)$}\\\\
+ $Q^{\pi }(A,s)$=R(s,a)+$\gamma \sum_{s' \epsilon S}T(s,a,s^{1})V^{\pi}s^{1}$\\
+ $Q^{\pi }(A,1)$=$R(A,1)+1*[T(A,1,A)*V^{\pi}(A)+T(A,1,B)*V^{\pi}(B)]$\\
+=0+1*[1*0+0*10]\\
+=0\\\\
+$Q^{\pi}(A,2)$=$R(A,2)+1*[T(A,2,A)*V^{\pi}(A)+T(A,2,B)*V^{\pi}(B)]$\\
+=-1+(0.5*0+0.5*10)\\
+=4\\\\
+$Q^{\pi }(B,1)$=$R(B,1)+1*[T(B,1,A)*V^{\pi}(A)+T(B,1,B)*V^{\pi}(B)]$\\
+=5+1*(0*0+1*10)\\
+=15\\\\
+$Q^{\pi }(B,2)$=$R(B,2)+1*[T(B,2,A)*V^{\pi}(A)+T(B,2,B)*V^{\pi}(B)]$\\
+=0+1*(0*0+1*10)\\
+=10\\\\
+$\pi_{new}(A)=2$  and
+$\pi_{new}(B)=1$
+\end{document}
