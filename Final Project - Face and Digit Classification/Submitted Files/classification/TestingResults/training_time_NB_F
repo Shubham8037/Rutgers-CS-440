@@ -1,0 +1,70 @@
+Classifier: naiveBayes
+Data: faces
+45 training
+150 testing
+['0.202784061432']
+57.3333333333
+
+Classifier: naiveBayes
+Data: faces
+90 training
+150 testing
+['0.396122932434']
+86.0
+
+Classifier: naiveBayes
+Data: faces
+135 training
+150 testing
+['0.561717033386']
+86.6666666667
+
+Classifier: naiveBayes
+Data: faces
+180 training
+150 testing
+['0.940224885941']
+86.6666666667
+
+Classifier: naiveBayes
+Data: faces
+225 training
+150 testing
+['1.13035202026']
+84.6666666667
+
+Classifier: naiveBayes
+Data: faces
+270 training
+150 testing
+['1.30298781395']
+87.3333333333
+
+Classifier: naiveBayes
+Data: faces
+315 training
+150 testing
+['1.74535298347']
+86.6666666667
+
+Classifier: naiveBayes
+Data: faces
+360 training
+150 testing
+['2.00823307037']
+87.3333333333
+
+Classifier: naiveBayes
+Data: faces
+405 training
+150 testing
+['2.40046906471']
+88.6666666667
+
+Classifier: naiveBayes
+Data: faces
+451 training
+150 testing
+['2.91495490074']
+88.6666666667
+

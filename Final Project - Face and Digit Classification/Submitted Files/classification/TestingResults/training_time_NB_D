@@ -1,0 +1,70 @@
+Classifier: naiveBayes
+Data: digits
+500 training
+1000 testing
+['0.178360939026']
+69.3
+
+Classifier: naiveBayes
+Data: digits
+1000 training
+1000 testing
+['0.330240011215']
+71.8
+
+Classifier: naiveBayes
+Data: digits
+1500 training
+1000 testing
+['0.477668046951']
+73.0
+
+Classifier: naiveBayes
+Data: digits
+2000 training
+1000 testing
+['0.638165950775']
+74.1
+
+Classifier: naiveBayes
+Data: digits
+2500 training
+1000 testing
+['0.816493034363']
+75.5
+
+Classifier: naiveBayes
+Data: digits
+3000 training
+1000 testing
+['0.943110942841']
+75.9
+
+Classifier: naiveBayes
+Data: digits
+3500 training
+1000 testing
+['1.08650398254']
+76.2
+
+Classifier: naiveBayes
+Data: digits
+4000 training
+1000 testing
+['1.26954889297']
+76.6
+
+Classifier: naiveBayes
+Data: digits
+4500 training
+1000 testing
+['1.39947390556']
+76.3
+
+Classifier: naiveBayes
+Data: digits
+5000 training
+1000 testing
+['1.52611303329']
+76.8
+

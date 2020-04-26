@@ -1,0 +1,140 @@
+Classifier: knn
+Data: faces
+45 training
+100 testing
+['0.021537065506']
+Accuracy - 63
+
+Classifier: knn
+Data: faces
+90 training
+100 testing
+['0.041841983795']
+Accuracy - 54
+
+Classifier: knn
+Data: faces
+135 training
+100 testing
+['0.066164970397']
+Accuracy - 53
+
+Classifier: knn
+Data: faces
+180 training
+100 testing
+['0.086513042453']
+Accuracy - 53
+
+Classifier: knn
+Data: faces
+225 training
+100 testing
+['0.120506048203']
+Accuracy - 54
+
+Classifier: knn
+Data: faces
+270 training
+100 testing
+['0.134030103683']
+Accuracy - 54 
+
+Classifier: knn
+Data: faces
+315 training
+100 testing
+['0.155061006546']
+Accuracy - 54
+
+Classifier: knn
+Data: faces
+360 training
+100 testing
+['0.174801111221']
+Accuracy - 55
+
+Classifier: knn
+Data: faces
+405 training
+100 testing
+['0.194679021835']
+Accuracy - 55
+
+Classifier: knn
+Data: faces
+451 training
+100 testing
+['0.215871810913']
+Accuracy - 55
+
+Classifier: knn
+Data: digits
+500 training
+100 testing
+['0.045608043670']
+Accuracy - 78
+
+Classifier: knn
+Data: digits
+1000 training
+100 testing
+['0.120428562164']
+Accuracy - 87
+
+Classifier: knn
+Data: digits
+1500 training
+100 testing
+['0.160551309585']
+Accuracy - 87
+
+Classifier: knn
+Data: digits
+2000 training
+100 testing
+['0.165568017005']
+Accuracy - 88
+
+Classifier: knn
+Data: digits
+2500 training
+100 testing
+['0.258089303976']
+Accuracy - 91
+
+Classifier: knn
+Data: digits
+3000 training
+100 testing
+['0.347123384473']
+Accuracy - 92
+
+Classifier: knn
+Data: digits
+3500 training
+100 testing
+['0.546935081481']
+Accuracy - 92
+
+Classifier: knn
+Data: digits
+4000 training
+100 testing
+['0.460803270335']
+Accuracy - 92
+
+Classifier: knn
+Data: digits
+4500 training
+100 testing
+['0.380937814719']
+Accuracy - 93
+
+Classifier: knn
+Data: digits
+5000 training
+100 testing
+['0.611562967308']
+Accuracy - 94
+

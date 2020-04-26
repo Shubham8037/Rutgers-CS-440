@@ -1,0 +1,140 @@
+Classifier: neuralNetwork
+Data: faces
+45 training
+100 testing
+['20.35655426979065']
+Accuracy - 61
+
+Classifier: neuralNetwork
+Data: faces
+90 training
+100 testing
+['5.9869349002838135']
+Accuracy - 53
+
+Classifier: neuralNetwork
+Data: faces
+135 training
+100 testing
+['19.133448600769043']
+Accuracy - 82
+
+Classifier: neuralNetwork
+Data: faces
+180 training
+100 testing
+['7.5815794467926025']
+Accuracy - 50
+
+Classifier: neuralNetwork
+Data: faces
+225 training
+100 testing
+['9.048017501831055']
+Accuracy - 53
+
+Classifier: neuralNetwork
+Data: faces
+270 training
+100 testing
+['21.860867738723755']
+Accuracy - 90 
+
+Classifier: neuralNetwork
+Data: faces
+315 training
+100 testing
+['26.982827186584473']
+Accuracy - 90
+
+Classifier: neuralNetwork
+Data: faces
+360 training
+100 testing
+['29.483996868133545']
+Accuracy - 90
+
+Classifier: neuralNetwork
+Data: faces
+405 training
+100 testing
+['27.14826798439026']
+Accuracy - 91
+
+Classifier: neuralNetwork
+Data: faces
+451 training
+100 testing
+['8.073929071426392']
+Accuracy - 53
+
+Classifier: neuralNetwork
+Data: digits
+500 training
+100 testing
+['0.3063220977783203']
+Accuracy - 73
+
+Classifier: neuralNetwork
+Data: digits
+1000 training
+100 testing
+['0.33194780349731445']
+Accuracy - 82
+
+Classifier: neuralNetwork
+Data: digits
+1500 training
+100 testing
+['1.0151374340057373']
+Accuracy - 89
+
+Classifier: neuralNetwork
+Data: digits
+2000 training
+100 testing
+['0.8467926979064941']
+Accuracy - 90
+
+Classifier: neuralNetwork
+Data: digits
+2500 training
+100 testing
+['1.226884126663208']
+Accuracy - 90
+
+Classifier: neuralNetwork
+Data: digits
+3000 training
+100 testing
+['4.5897135734558105']
+Accuracy - 91
+
+Classifier: neuralNetwork
+Data: digits
+3500 training
+100 testing
+['4.653192758560181']
+Accuracy - 95
+
+Classifier: neuralNetwork
+Data: digits
+4000 training
+100 testing
+['3.4674456119537354']
+Accuracy - 93
+
+Classifier: neuralNetwork
+Data: digits
+4500 training
+100 testing
+['5.202083349227905']
+Accuracy - 95
+
+Classifier: neuralNetwork
+Data: digits
+5000 training
+100 testing
+['6.3809449672698975']
+Accuracy - 90
+

@@ -1,0 +1,70 @@
+Classifier: perceptron
+Data: digits
+500 training
+1000 testing
+['10.3704040051']
+68.6
+
+Classifier: perceptron
+Data: digits
+1000 training
+1000 testing
+['20.6164841652']
+74.0
+
+Classifier: perceptron
+Data: digits
+1500 training
+1000 testing
+['31.2405691147']
+76.5
+
+Classifier: perceptron
+Data: digits
+2000 training
+1000 testing
+['41.1930379868']
+75.3
+
+Classifier: perceptron
+Data: digits
+2500 training
+1000 testing
+['51.8657388687']
+78.9
+
+Classifier: perceptron
+Data: digits
+3000 training
+1000 testing
+['61.4056642056']
+80.3
+
+Classifier: perceptron
+Data: digits
+3500 training
+1000 testing
+['72.1774120331']
+80.2
+
+Classifier: perceptron
+Data: digits
+4000 training
+1000 testing
+['81.9804768562']
+77.1
+
+Classifier: perceptron
+Data: digits
+4500 training
+1000 testing
+['94.4458730221']
+80.1
+
+Classifier: perceptron
+Data: digits
+5000 training
+1000 testing
+['101.692818165']
+78.3
+

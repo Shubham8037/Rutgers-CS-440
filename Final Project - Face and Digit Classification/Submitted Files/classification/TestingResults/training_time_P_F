@@ -1,0 +1,70 @@
+Classifier: perceptron
+Data: faces
+45 training
+150 testing
+['1.15970110893']
+60.6666666667
+
+Classifier: perceptron
+Data: faces
+90 training
+150 testing
+['2.30774211884']
+74.0
+
+Classifier: perceptron
+Data: faces
+135 training
+150 testing
+['3.51462888718']
+75.3333333333
+
+Classifier: perceptron
+Data: faces
+180 training
+150 testing
+['4.64225912094']
+82.6666666667
+
+Classifier: perceptron
+Data: faces
+225 training
+150 testing
+['5.64107513428']
+80.0
+
+Classifier: perceptron
+Data: faces
+270 training
+150 testing
+['6.7274980545']
+86.6666666667
+
+Classifier: perceptron
+Data: faces
+315 training
+150 testing
+['7.92371702194']
+81.3333333333
+
+Classifier: perceptron
+Data: faces
+360 training
+150 testing
+['8.90939188004']
+81.3333333333
+
+Classifier: perceptron
+Data: faces
+405 training
+150 testing
+['10.4082109928']
+84.0
+
+Classifier: perceptron
+Data: faces
+451 training
+150 testing
+['11.0415480137']
+84.6666666667
+
